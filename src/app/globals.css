@@ -6,6 +6,13 @@ body {
   background-color: #f2dfce;
 }
 
+h1{
+ font-size: 2rem;
+ padding: 1rem;
+ font-weight: bold;
+ font-style: italic;
+}
+
 .bookContainer {
   height: 80vh;
   width: 95%;
@@ -27,7 +34,9 @@ body {
 }
 
 .bookContainer aside p {
-  line-height: 21px;
+  line-height: 23px;
+  font-style: italic;
+  padding-top: 1rem;
 }
 
 .floating-toolbar {

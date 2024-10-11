@@ -18,9 +18,9 @@ export default function Home() {
           <section className={styles.content}>
             <SideBar />
           </section>
-          <div>
+          <div className={styles.grouper}>
             <h1>ALL BOOKS</h1>
-            <ul className='flex flex-row flex-wrap items-start justify-evenly'>
+            <ul class='flex flex-row flex-wrap items-start justify-evenly'>
               {books.map((book, i) => (
                 <motion.li
                   whileHover={{ scale: 1.1 }}

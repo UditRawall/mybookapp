@@ -9,13 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@editorjs/editorjs": "^2.30.6",
+    "@editorjs/paragraph": "^2.11.6",
     "@fortawesome/fontawesome-free": "^6.6.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "framer-motion": "^11.11.1",
     "next": "14.2.14",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-editor-js": "^2.1.0",
+    "reactjs-editor": "^10.0.1"
   },
   "devDependencies": {
     "eslint": "^8",
