@@ -6,16 +6,35 @@ import { motion } from "framer-motion";
 import styles from "./book.module.css";
 import { Editor,useDomValue } from "reactjs-editor";
 import Link from "next/link";
+import { useEffect } from "react";
 
-const page = () => {
+const bookPage = () => {
   const { id } = useParams();
-  console.log(id);
   const { dom, setDom } = useDomValue();
 
   const bookData = books.filter((book, i) => {
     return id === String(book.id);
   });
-  console.log(bookData);
+
+  const handleSave= ()=>{
+    const updatedDomValue  = {
+        key: dom?.key,
+        props: dom?.props,
+        ref: dom?.ref,
+        type: dom?.type,
+      }
+
+      localStorage.setItem(`dom${bookData[0].id}`,JSON.stringify(updatedDomValue))
+    
+   }
+
+   useEffect(()=>{
+    const savedDom = localStorage.getItem(`dom${bookData[0].id}`) 
+    if(savedDom){
+        setDom(JSON.parse(savedDom))
+    }
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+   },[])
   return (
     <motion.div
       transition={{ type: "spring", damping: 40, mass: 0.75 }}
@@ -40,7 +59,7 @@ const page = () => {
           <h2 className={styles.titleStyles}>{bookData[0]?.title}</h2>
         </div>
         <div className={styles.icons}>
-          <button className={styles.saveButton}>Save</button>
+          <button className={styles.saveButton} onClick={handleSave}>Save</button>
           <i style={iconStyle} className="fas fa-cog"></i>
           <i style={iconStyle} className="fas fa-share"></i>
           <i style={iconStyle} className="fas fa-search"></i>
@@ -65,6 +84,6 @@ const page = () => {
   );
 };
 
-export default page;
+export default bookPage;
 
 const iconStyle = { marginRight: "20px", fontSize: "20px" };
