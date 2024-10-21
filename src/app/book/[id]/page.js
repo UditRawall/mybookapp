@@ -8,7 +8,7 @@ import { Editor,useDomValue } from "reactjs-editor";
 import Link from "next/link";
 import { useEffect } from "react";
 
-const bookPage = () => {
+const Page = () => {
   const { id } = useParams();
   const { dom, setDom } = useDomValue();
 
@@ -84,6 +84,6 @@ const bookPage = () => {
   );
 };
 
-export default bookPage;
+export default Page;
 
 const iconStyle = { marginRight: "20px", fontSize: "20px" };
